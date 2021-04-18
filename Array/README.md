@@ -38,5 +38,51 @@ def solution(nums, target):
           result[target-nums[i]] = i
 ```
           
-      
-      
+### Medium:
+Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
+
+My naive-thoughts:
+loops, time complexity O(n^2)
+#### Brute-Force method
+```
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        max_area = 0
+        for i in range(len(height)-1):
+            for j in range(i, len(height)):
+                area = min(height[i],height[j])*(j-i)
+                if area > max_area:
+                    max_area = area
+        return max_area
+```
+However, takes too long to run. Have to advance.
+#### Two pointer approach
+The intuition behind this approach is that the area formed between the lines will always be limited by the height of the shorter line. Further, the farther the lines, the more will be the area obtained.
+so I first select the leftmost and rightmost lines, compare the height of two lines, if left line is shorter, I move inward from left to find whether there is longer line. Similar for the other side. 
+
+```
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        max_area = 0
+        n = len(height)
+        left = 0
+        right = n-1
+        while left < right:
+            area = min(height[left], height[right])*(right-left)
+            if area > max_area:
+                max_area = area
+            if height[left] <= height[right]:
+                left = left + 1
+            else:
+                right = right - 1
+        return max_area
+ ```
+  
