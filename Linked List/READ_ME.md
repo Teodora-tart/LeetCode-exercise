@@ -138,3 +138,62 @@ int main()
   
 }
 ```
+
+### Linked List Traversal
+```
+// A simple C++ program for traversal of a linked list
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+class Node
+{
+	public:
+		int data;
+		Node* next;
+ };
+ 
+// This function prints contents of linked list
+// starting from the given node
+void printList(Node* n)
+{
+	while (n!=NULL)
+	{
+		cout << n->data << " ";
+		n = n->next;
+	}
+}
+
+int main()
+{
+	Node* head = NULL;
+	Node* second = NULL;
+	Node* third = NULL;
+	
+	head = new Node();
+	second = new Node();
+	third = new Node();
+	
+	head->data = 1;
+	head->next = second;
+	
+	second->data = 2;
+	second->next = third;
+	
+	third->data = 3;
+	third->next = NULL;
+	
+	printList(head);
+	return 0;
+```
+### Insertion
+A node can be added in three ways:
+1) At the front of the linked list
+2) After a given node
+3) At the end of the linked list
+
+#### Add a node at the front
+The new added node will become the new head of the linked list. For example, the given linked list is 10->15->20->25, we add an item 5 a the front of the linked list. Let us call the function that add a node at the front of the linked list **push()**. 
+1) Cut the head pointer point to the old first element.
+2) head points to the new first element, which is 5.
+3) link the first new element 5 to the old first element, which is 10
