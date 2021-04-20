@@ -197,3 +197,155 @@ The new added node will become the new head of the linked list. For example, the
 1) Cut the head pointer point to the old first element.
 2) head points to the new first element, which is 5.
 3) link the first new element 5 to the old first element, which is 10
+
+```
+# This is Python code
+# This function is in LinkedList class
+# Function to insert a new node at the beginning
+def push(self, new_data):
+	new_node = Node(new_data)
+	new_node.next = self.head
+	self.head = new_node
+	
+```
+
+```
+# This is C++ code
+/* Given a reference (pointer to pointer) 
+to the head of a list and an int, 
+inserts a new node on the front of the list. */
+void push(Node** head_ref, int new_data)
+{
+	/* 1. allocate node */
+	Node* new_node = new Node();
+	
+	/* 2. put in the data */
+	new_node->data = new_data;
+	
+	/* 3. Make next of new node as head */
+	new_node->next = (*head_ref);
+	
+	 /* 4. move the head to point to the new node */
+	(*head_ref) = new_node;
+}
+```
+Time complexity of push() is O(1).
+
+#### Add a node after a given node
+We are given pointer to a node, and the new node is inserted after the given node.
+
+```
+// Given a node prev_node, insert a 
+// new node after the given prev_node
+void insertAfter(Node* prev_node, int new_data)
+{
+	//1. Check if the given prev_node is NULL
+	if (prev_node == NULL)
+	{
+		cout << "the given previous node cannot be NULL" << endl;
+		return ;
+	}
+	
+	// 2. Allocate new node
+	Node* new_node = new Node();
+	
+	// 3. Put in the data
+	new_node->data = new_data;
+	
+	// 4. Make next of new node as next of prev_node
+	new_node->next = prev_node->next;
+	
+	// 5. move the next of prev_node as new_node;
+	prev_node->next = new_node;
+}
+```
+For Python code
+```
+# This function is in LinkedList class. 
+# Inserts a new node after the given prev_node. This method is 
+# defined inside LinkedList class shown above 
+def insertAfter(self, prev_node, new_data):
+	# 1. check if the given prev_node exists
+	if prev_node is None:
+		print("The given previous node must be in linked list.")
+		return 
+	# 2. Create new node & 3. Put in the data
+	new_node = Node(new_data)
+	
+	# 4. Make next of new Node as next of prev_node
+	new_node.next = prev_node.next
+	
+	# 5. Make next of prev node as new_node
+	prev_node.next = new_node
+```
+Time complexity of insertAfter() is O(1).
+
+#### Add a node at the end
+The new node is always added after the last node of the given linked list.
+Since a linked list is typically represented by the head of it, we have to traverse teh list till end and then change the next of last node to the new node.
+For C++ code
+```
+// Given a reference (pointer to pointer) to the head  
+// of a list and an int, appends a new node at the end 
+void append(Node** head_ref, int new_data)
+{
+	// 1. allocate node
+	Node* new_node = new Node();
+	
+	// Used in step 5
+	Node* last = *head_ref;
+	
+	// 2. Put in the data
+	new_node->data = new_data
+	
+	// 3. This new node is going to be the last node, 
+	so make next of it as NULL
+	new_node->next = NULL
+	
+	// 4. If the linked list is empty,
+	// then make the new node as head
+	if (*head_ref == NULL)
+	{
+		*head_ref = new_node;
+		return ;
+	}
+	
+	// 5. Else traverse till the last node
+	while (last->next != NULL)
+		last = last->next;
+		
+	// 6. Change the next of the last node
+	last->next = new_node;
+	return ;
+}
+```
+For Python code
+```
+def append(self, new_data):
+	# 1 & 2: Allocate the Node &
+        # Put in the data
+	# 3. Set next as None
+	new_node = Node(new_data)
+#	new_node.next = None
+	 # 4. If the Linked List is empty, then make the
+         # new node as head
+	if self.head is None:
+		self.head = new_node
+		return
+	
+	# 5. Else traverse till the last node
+	last = self.head
+	while (last.next):
+		last = last.next
+		
+	# 6. Change the next of last node
+	last.next = new_node
+	
+```
+Time complexity of append is O(n) where n is the number of nodes in linked list
+
+	
+	
+
+	
+
