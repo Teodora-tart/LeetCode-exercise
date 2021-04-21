@@ -345,7 +345,54 @@ def append(self, new_data):
 Time complexity of append is O(n) where n is the number of nodes in linked list
 
 	
+### Deleting a node
+Given a 'key', delete the first occurence of this key in the linked list.
+
+#### Iterative method:
+1. Find the previous node of the node to be deleted.
+2. Change the next of the previous node
+3. Free memory for the node to be deleted.
+
+```
+// Given a reference (pointer to pointer)
+// to the head of a list and a key, deletes
+// the first occurrence of key in linked list
+void deleteNode(Node** head_ref, int key)
+{
+	// Store head node
+	Node* temp = *head_ref;
+	Node* prev = NULL;
 	
+	// If head node itself holds 
+	// the key to be deleted
+	if (temp != NULL && temp->data == key)
+	{
+		*head_ref = temp->next;
+		delete temp;
+		return ;
+	}
+	
+	// Else Search for the key to be deleted,
+	// keep track of the previous node as we
+	// need to change 'prev->next';
+	else
+	{
+		while (temp!= NULL && temp->data != key)
+		{
+			prev = temp;
+			temp = temp->next;
+		}
+		if (temp == NULL)
+			return ;
+			
+		prev->next = temp->next;
+		delete temp;
+		
+	}	
+}
+```
+
+#### Recursive Method:
 
 	
 
