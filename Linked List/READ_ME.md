@@ -392,7 +392,40 @@ void deleteNode(Node** head_ref, int key)
 }
 ```
 
-#### Recursive Method:
+### Delete a linked list node at a given position
+Given a singly linked list and a position, delete a linked list node at the given position.
 
+```
+void deleteNode(Node **head_ref, int position)
+{
+	if (*head_ref == NULL)
+		return;
+	// Store head node
+	Node* temp = *head_ref
 	
+	if (position == 0)
+	{
+		*head_ref = temp->next;
+		// free old head
+		free(temp)
+		return ;
+	}
+	
+	for (int i=0; temp != NULL & i < position-1)
+	{
+		temp = temp->next;
+	}
+	
+	if (temp == NULL || temp->next == NULL)
+		return ;
+	
+	Node *next = temp->next->next;
+	
+	free(temp->next);
+	temp->next = next;
+}
+```
+
+### Write a function to delete a linked list
+Algorithms for C/C++: Iterate through the 
 
