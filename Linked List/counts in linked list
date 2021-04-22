@@ -1,0 +1,18 @@
+# counts the number of times a given int occurs in a Linked List
+## Method 1 - Without Recursion
+```
+1. Initialize count as zero
+2. Loop through each element of linked list:
+  a) If element data is equal to the passed number then increment the count.
+3. Return count
+```
+## Method 2 - With Recursion
+### Algorithm
+```
+count(head, key);
+if head is NULL
+return frequency
+if (head->data == key)
+increase frequency by 1
+count(head->next, key)
+```
