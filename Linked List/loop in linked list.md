@@ -103,4 +103,5 @@ int detectLoop(Node* list)
   }
   ```
   
-  
+  Time complexity: O(n)
+  Auxiliary Space: O(1)
