@@ -180,6 +180,10 @@ struct Node{
  4. Fix on pointer to the head and another to a kth node from the head.
  5. Move both pointers at the same pace, they will meet at loop starting node.
  6. Get a pointer to the last node of the loop and make next of it as NULL
- ![delete loop](https://user-images.githubusercontent.com/82644032/115984081-c1a06c80-a5d7-11eb-81d4-901a9440d9fd.jpg)
+![delete loop](https://user-images.githubusercontent.com/82644032/115984526-0f1dd900-a5da-11eb-8f5d-42a4853b6c67.jpg)
+
+### Method 3
+We do not need to count number of nodes in Loop. After detecting the loop, if we start slow pointer from head and move both slow and fast pointers at same speed until meet, they would meet at the beginning of the loop.
+![deleteloop1](https://user-images.githubusercontent.com/82644032/115984766-5c4e7a80-a5db-11eb-8397-ddfd124216b5.jpg)
 
  
