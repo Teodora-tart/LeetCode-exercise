@@ -105,3 +105,81 @@ int detectLoop(Node* list)
   
   Time complexity: O(n)
   Auxiliary Space: O(1)
+
+## Detect and Remove Loop in a Linked List
+
+### Method 1: Check one by one
+We know that Floyd’s Cycle detection algorithm terminates when fast and slow pointers meet at a common point. We also know that this common point is one of the loop nodes (2 or 3 or 4 or 5 in the above diagram). Store the address of this in a pointer variable say ptr2. After that start from the head of the Linked List and check for nodes one by one if they are reachable from ptr2. Whenever we find a node that is reachable, we know that this node is the starting node of the loop in Linked List and we can get the pointer to the previous of this node.
+
+```
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node{
+  int data;
+  struct Node* next;
+ };
+ 
+ void removeLoop(struct Node*, struct Node*);
+ 
+ int detectAndRemoveLoop(struct Node* list)
+ {  
+    struct Node *slow_p = list, *fast_p = list;
+    while (slow_p && fast_p && fast_p->next)
+    {
+        slow_p = slow_p->next;
+        fast_p = fast_p->next->next;
+        if (fast_p == slow_p)
+        { 
+            removeLoop(slow_p, list);
+            return 1;
+         }
+     }
+    
+      return 0;
+    }
+ 
+ void removeLoop(struct Node* loop_node, struct Node* head)
+ {  
+    struct Node* ptr1;
+    struct Node* ptr2;
+    /* Set a pointer to the beginning
+      of the Linked List and
+      move it one by one to find the
+      first node which is
+      part of the Linked List */
+     ptr1 = head;
+     while (1) {
+        /* Now start a pointer from
+        loop_node and check if
+       it ever reaches ptr2 */
+       ptr2 = loop_node;
+       while (ptr2->next != loop_node
+       && ptr2->next != ptr1)
+       {
+          ptr2 = ptr2->next;
+       }
+       
+        /* If ptr2 reahced ptr1
+        then there is a loop. So
+        break the loop */
+        if (ptr2->next == ptr1)
+          break;
+          
+         ptr1 = ptr1->next;
+    }
+        ptr2->next = NULL;
+ }
+ 
+ ```
+ 
+ ### Method 2
+ 1. This method is also dependent on Floyd's Cycle detection algorithm
+ 2. Detect Loop using Floyd's Cycle detection algorithm and get the pointer to a loop node.
+ 3. Count the number of nodes in loop. Let the count be k.
+ 4. Fix on pointer to the head and another to a kth node from the head.
+ 5. Move both pointers at the same pace, they will meet at loop starting node.
+ 6. Get a pointer to the last node of the loop and make next of it as NULL
+ ![delete loop](https://user-images.githubusercontent.com/82644032/115984081-c1a06c80-a5d7-11eb-81d4-901a9440d9fd.jpg)
+
+ 
