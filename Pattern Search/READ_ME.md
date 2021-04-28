@@ -102,8 +102,12 @@ For example:
 ## Searching Algorithm
 Example
 <img width="290" alt="1" src="https://user-images.githubusercontent.com/82644032/116359776-c95b4d80-a831-11eb-9bc9-9036a6c1886e.png">
+
 <img width="362" alt="2" src="https://user-images.githubusercontent.com/82644032/116359791-cd876b00-a831-11eb-8268-c931ba629294.png">
+
 <img width="409" alt="3" src="https://user-images.githubusercontent.com/82644032/116359797-cf512e80-a831-11eb-9aa4-b72e69c85467.png">
+
 <img width="420" alt="4" src="https://user-images.githubusercontent.com/82644032/116360795-db89bb80-a832-11eb-869c-e4e73872a596.png">
+
 <img width="388" alt="5" src="https://user-images.githubusercontent.com/82644032/116360800-dcbae880-a832-11eb-9158-68ecfe188e47.png">
 
