@@ -4,7 +4,7 @@ Given a text txt[0..n-1] and a pattern pat[0..m-1], write a function search(char
 The basic idea behind KMP's algoritm is: whenever we detect a mismatch (after some match), we already know some of th characters in the text of the next window. We take advantage of this information to avoid matching the characters that we know will anyway match
 For example:
 1. 
-http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050103.png
+![alt text] (http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050103.png)
 首先，字符串"BBC ABCDAB ABCDABCDABDE"第一个字符与搜索词"ABCDABD"作比较。因为B与A不匹配，所以搜索词后移一位
 
 2. http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050104.png
