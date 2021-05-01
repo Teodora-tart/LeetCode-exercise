@@ -141,5 +141,29 @@ Input: nums = [100,4,200,1,3,2]
 Output: 4
 Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
 ```
-My first thought: using sorted array, the time complexity is O(logn)
+My first thought: using sorted array, the time complexity is O(nlogn)
 However, the problem asks: "Could you implement the O(n) solution?"
+
+I attached my naive solution inspired by hash map:
+```
+def longestConsecutive(nums):
+    nums = set(nums)
+    consecutive = {}
+
+    for num in nums:
+        if num+1 not in nums:
+            consecutive[num] = num
+        else:
+            yy = num + 1     
+            while yy in nums:
+                yy += 1
+            consecutive[num] = yy
+    
+    largest = 0
+    for key, values in consecutive.items():
+        key = int(key)
+        largest = max(largest, values - key)
+    return largest
+ ```
+ Also, I uploaded the advanced solution in the folder
+ 
