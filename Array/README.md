@@ -132,3 +132,14 @@ Would this affect the run-time complexity? How and why?
 Write a function to determine if a given target is in the array
 ```
 My first thought is very brute force, reduce the duplicated sorted array into non-duplicated sorted array and then use algorithms in the last question.
+
+
+## Longest Consecutive Sequence
+Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+```
+Input: nums = [100,4,200,1,3,2]
+Output: 4
+Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+```
+My first thought: using sorted array, the time complexity is O(logn)
+However, the problem asks: "Could you implement the O(n) solution?"
