@@ -167,3 +167,26 @@ def longestConsecutive(nums):
  ```
  Also, I uploaded the advanced solution in the folder
  
+## May 3th
+## Remove Element:
+'''
+Given an array and a value, remove all instances of that value in place and return the new length.
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3]
+Explanation: Your function should return length = 5, with the first five elements of nums 
+containing 0, 1, 3, 0, and 4. Note that the order of those five elements can be arbitrary. 
+It doesn't matter what values are set beyond the returned length.
+'''
+Very easy to solve, so I omit the procedure
+
+## Next Permutation
+'''
+Implement next permutation, which rearranges numbers into the lexicographically next greater permutation
+of numbers.
+If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
+The replacement must be in-place, do not allocate extra memory.
+'''
+I found it hard to understand, but when I saw this picture, it is not hard to understand and easy to write the code following the steps on the picture.
+
+<img width="532" alt="nextPermutation" src="https://user-images.githubusercontent.com/82644032/116847158-9099ea80-ac1c-11eb-893e-e350cebd463b.png">
+
