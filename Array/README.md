@@ -190,3 +190,27 @@ I found it hard to understand, but when I saw this picture, it is not hard to un
 
 <img width="532" alt="nextPermutation" src="https://user-images.githubusercontent.com/82644032/116847158-9099ea80-ac1c-11eb-893e-e350cebd463b.png">
 
+## Permutation Sequence
+'''
+The set [1, 2, 3, ..., n] contains a total of n! unique permutations.
+
+By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
+
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+Given n and k, return the kth permutation sequence.
+'''
+ since all of the permutations have to be in order, for n numbers, if fix the first number, there are (n-1)! permutations for the remaining (n-1) numbers, if continue to fix the second number, there are (n-2)! permutations for the remaining (n-2) numbers... To make it easy to understand, let's take an example,
+
+'''
+Example: n = 4, k = 9
+fix the first number, there are (n-1)! = 3! = 6 ways of permutations, since 6 < 9 < 6×2, it can be induced that the first number must be 1, --> 1xxx
+then we continue to inspect the second number, if continue to fix the second number, there are (n-2)! = 2! = 2 permutations, k-6 = 3 > 2, therefore the second number cannot be 1, must be 3. --> 23xx
+k = 9 = 6 + 2 + 1 = 3! + 2! + 1
+Therefore, the third number is 1, since there are only 2 numbers left, 1 and 4 and 1<4. --> 2314
+'''
+
