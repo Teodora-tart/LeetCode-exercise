@@ -1,0 +1,3 @@
+'''
+next permutation
+'''
